@@ -17,12 +17,12 @@ mongoose
   })
   .then((con) => console.log('DB connection successful!'));
 
-const port = 5000;
-const server = app.listen(port, () => {
-  console.log(`App running on port ${port}...`);
+const PORT = process.env.PORT || 5000;
+const server = app.listen(PORT, () => {
+  console.log(`App running on port ${PORT}...`);
 });
 
-app.on('unhandledRejection', (err) => {
+process.on('unhandledRejection', (err) => {
   console.log(err.name, err.message);
   console.log('UNHANDLED REJECTION: Shutting down...');
 
